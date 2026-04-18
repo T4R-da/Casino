@@ -1,0 +1,1 @@
+g++ main.cpp miniaudio.c -o casino.exe -lwinmm -lole32
