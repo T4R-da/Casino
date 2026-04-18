@@ -6,6 +6,7 @@
 #include <vector>
 #include <chrono>
 #include <thread>
+#include <windows.h>
 
 // ANSI Colors
 #define RESET   "\033[0m"

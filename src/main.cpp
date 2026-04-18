@@ -59,20 +59,27 @@ int main() {
             printMenu(options, selected);
         }
 
-        if (key == 13) break;
+        if (key == 13) {
+            if (audioEnabled) {
+                ma_sound_stop(&bgSound);
+                ma_sound_uninit(&bgSound);
+                audioEnabled = false;
+            }
+            break;
+        }
     }
 
-    // Fade out BGM cleanly before launching the game
-    if (audioEnabled) {
-        ma_sound_set_fade_in_milliseconds(&bgSound, 0.0f, 0.0f, 400); // fade to silence over 400ms
-        std::this_thread::sleep_for(std::chrono::milliseconds(450));   // wait for fade to complete
-        ma_sound_stop(&bgSound);
-        ma_sound_uninit(&bgSound);
-    }
+    // Cleanup engine (sound already handled above if audio was enabled)
     ma_engine_uninit(&engine);
 
     std::cout << "\n" << YELLOW << "Launching: " << options[selected] << RESET << "\n";
     std::string fullPath = "\"" + FILES_DIR + options[selected] + "\"";
+
+    // Change working directory to the target exe's folder
+    std::string exeDir = FILES_DIR + options[selected];
+    exeDir = exeDir.substr(0, exeDir.find_last_of("\\/"));
+    SetCurrentDirectoryA(exeDir.c_str()); // Windows API, include <windows.h>
+
     std::system(fullPath.c_str());
 
     return 0;
