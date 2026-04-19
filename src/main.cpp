@@ -23,7 +23,7 @@ void printMenu(const std::array<std::string, 4>& options, int selected) {
 
 int main() {
     std::string FILES_DIR = "Z:\\! coding\\C++\\! builds\\"; // modify this based on where you put the files 
-    std::array<std::string, 4> options = {"Black-Jack-sim\\blackjack.exe","Poker-sim\\Poker-sim.exe","Roulette-simulator\\src\\Roulette.exe", "Texas_holdem-sim\\poker-sim.exe"};
+    std::array<std::string, 4> options = {"Black-Jack-sim\\blackjack.exe","Poker-sim\\Poker-sim.exe","Roulette-simulator\\roulette.exe", "Texas_holdem-sim\\poker-sim.exe"};
 
     bootingSequence();
     clearScreen();
