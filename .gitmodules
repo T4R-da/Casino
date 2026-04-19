@@ -7,3 +7,6 @@
 [submodule "repo3"]
 	path = repo3
 	url = https://github.com/T4R-da/Texas_holdem-simulator.git
+[submodule "repo4"]
+	path = repo4
+	url = https://github.com/T4R-da/Fortune-Wheel
