@@ -10,7 +10,7 @@
 #define GREEN   "\033[32m"
 #define MAGENTA "\033[35m"
 
-void printMenu(const std::array<std::string, 3>& options, int selected) {
+void printMenu(const std::array<std::string, 4>& options, int selected) {
     std::cout << "\033[" << options.size() << "A";
 
     for (int i = 0; i < (int)options.size(); i++) {
