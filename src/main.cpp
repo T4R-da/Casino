@@ -25,6 +25,8 @@ int main() {
     std::string FILES_DIR = "Z:\\! coding\\C++\\! builds\\"; // modify this based on where you put the files 
     std::array<std::string, 4> options = {"Black-Jack-sim\\blackjack.exe","Poker-sim\\Poker-sim.exe","Roulette-simulator\\src\\Roulette.exe", "Texas_holdem-sim\\poker-sim.exe"};
 
+    bootingSequence();
+    clearScreen();
     // Audio Initialization with looping background music
     ma_engine engine;
     ma_sound bgSound;
