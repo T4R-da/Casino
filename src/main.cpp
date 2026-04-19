@@ -10,20 +10,22 @@
 #define GREEN   "\033[32m"
 #define MAGENTA "\033[35m"
 
-void printMenu(const std::array<std::string, 4>& options, int selected) {
+void printMenu(const std::array<std::string, 4>& options, const std::array<std::string, 4>& names, int selected) {
     std::cout << "\033[" << options.size() << "A";
 
     for (int i = 0; i < (int)options.size(); i++) {
         if (i == selected)
-            std::cout << GREEN << BOLD << "  > " << options[i] << RESET << "   \n";
+            std::cout << GREEN << BOLD << "  > " << names[i] << RESET << "   \n";
         else
-            std::cout << "    " << options[i] << "   \n";
+            std::cout << "    " << names[i] << "   \n";
     }
 }
 
 int main() {
     std::string FILES_DIR = "Z:\\! coding\\C++\\! builds\\"; // modify this based on where you put the files 
     std::array<std::string, 4> options = {"Black-Jack-sim\\blackjack.exe","Poker-sim\\Poker-sim.exe","Roulette-simulator\\roulette.exe", "Texas_holdem-sim\\poker-sim.exe"};
+    std::array<std::string, 4> names = {"Black Jack", "Poker 5 Card", "Roulette", "Texas Hold'em"};
+    std::string Black_Jack = options[0]; std::string Poker_5card = options[1]; std::string Roulette = options[2]; std::string Texas_holdem = options[3];
 
     bootingSequence();
     clearScreen();
@@ -46,9 +48,9 @@ int main() {
     int selected = 0;
     for (int i = 0; i < (int)options.size(); i++) {
         if (i == selected)
-            std::cout << GREEN << BOLD << "  > " << options[i] << RESET << "   \n";
+            std::cout << GREEN << BOLD << "  > " << names[i] << RESET << "   \n";
         else
-            std::cout << "    " << options[i] << "   \n";
+            std::cout << "    " << names[i] << "   \n";
     }
 
     while (true) {
@@ -58,7 +60,7 @@ int main() {
             int arrow = _getch();
             if (arrow == 72) selected = (selected - 1 + options.size()) % options.size();
             if (arrow == 80) selected = (selected + 1) % options.size();
-            printMenu(options, selected);
+            printMenu(options, names, selected);
         }
 
         if (key == 13) {
