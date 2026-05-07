@@ -17,7 +17,7 @@ namespace fs = std::filesystem;
 #define BOLD    "\033[1m"
 #define GREEN   "\033[32m"
 
-void printMenu(const std::array<std::string, 4>& names, int selected) {
+void printMenu(const std::array<std::string, 5>& names, int selected) {
     std::cout << "\033[" << names.size() << "A";
     for (int i = 0; i < (int)names.size(); i++) {
         if (i == selected)
@@ -58,13 +58,14 @@ int main() {
     // Fallback to current directory if searching fails
     if (!found) rootPath = currentPath;
 
-    std::array<std::string, 4> relativePaths = {
+    std::array<std::string, 5> relativePaths = {
         "repo1\\src\\blackjack.exe", 
         "repo2\\src\\Poker-sim.exe", 
         "repo3\\src\\poker-sim.exe", 
         "repo4\\src\\roulette.exe"
+        "repo5\\src\\slot_machine.exe"
     };
-    std::array<std::string, 4> names = {"Black Jack", "Poker 5 Card", "Texas Hold'em", "Roulette"};
+    std::array<std::string, 5> names = {"Black Jack", "Poker 5 Card", "Texas Hold'em", "Roulette", "Slot Machine"};
 
     bootingSequence();
     clearScreen();
