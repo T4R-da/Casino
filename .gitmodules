@@ -10,3 +10,6 @@
 [submodule "repo4"]
 	path = repo4
 	url = https://github.com/T4R-da/Roulette-simulator.git
+[submodule "repo5"]
+	path = repo5
+	url = https://github.com/T4R-da/Slot_Machine-sim
